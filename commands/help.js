@@ -1,6 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const { readdirSync } = require("fs");
-const prefix = require("../../config.json").prefix;
+const prefix = require("../main").prefix;
 
 module.exports = {
   name: "help",
