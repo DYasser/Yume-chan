@@ -41,13 +41,23 @@ client.on('message', message => {
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift();//.toLowerCase();
 
+    let jsfiles = files.filter(f => f.split(".").pop() === "js");
+    if(jsfiles.length <= 0) {
+        console.log("No commands to load!");
+        return;
+    }
+
     if(command === 'ping'){
         client.commands.get('ping').execute(message, args);
     } else if(command === 'hello'){
         client.commands.get('hello').execute(message, args);
+    } else if(command === 'help'){
+        client.commands.get('help').execute(message, args);
     } else if(command === 'request'){
         client.commands.get('request').execute(message, args, connection);
-    } 
+    } else {
+        message.channel.send("I can't do it yet.. Gomenasai~");
+    }
 });
 //  ------------------  Discord Bot ---------------------------------  //
 
