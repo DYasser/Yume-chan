@@ -1,7 +1,7 @@
 const mysql = require('mysql');
 
 // Configuration to connect to the database ; for more info see the environnement variables
-const connection = mysql.createPool({
+const connection = mysql.createConnection({
     port: process.env.DB_PORT,
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
@@ -10,7 +10,7 @@ const connection = mysql.createPool({
     socketPath: process.env.SOCKET_PATH,
     multipleStatements: true
 });
-connection.getConnection(function(err) {
+connection.connect(function(err) {
     if (err) {
         console.error('error connecting: ' + err.message);
         return;
