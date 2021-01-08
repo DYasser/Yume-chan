@@ -23,7 +23,7 @@ module.exports = {
         );
 
         const cmds = commands.map((command) => {
-          let file = require(`../../commands/${dir}/${command}`);
+          let file = require(`../commands/${dir}/${command}`);
 
           if (!file.name) return "No command name.";
 
