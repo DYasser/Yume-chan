@@ -8,14 +8,14 @@ require('./api/config/db-config')
 
 const CONFIG = require('./api/config/env-config').CONFIG;
 
-const port = CONFIG.port;
+/*const port = CONFIG.port;
 //Testing the connection to the server, you can delete this when you push to a server since it is useless to console it there.
 connection.query('SELECT 1', (err, result) => {
     console.log({ error: err, ok: result })
     if (err) {
         next(err)
     }
-})
+})*/
 
 const client = new Discord.Client();
 
@@ -56,6 +56,6 @@ client.on('message', message => {
 module.exports = app;
 
 //Listen on env port or 3000
-app.listen(port, () => {console.log(`Listenning to port ${port}...`)});
+//app.listen(port, () => {console.log(`Listenning to port ${port}...`)});
 
 client.login(process.env.token);
