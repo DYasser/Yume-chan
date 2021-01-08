@@ -1,106 +1,45 @@
-const { MessageEmbed } = require("discord.js");
-const { readdirSync } = require("fs");
-const prefix = require("../main").prefix;
+const pagination = require('discord.js-pagination');
+const Discord = require('discord.js');
 
 module.exports = {
-  name: "help",
-  aliases : ['h'],
-  description: "Shows all available bot commands.",
-  execute: async (client, message, args) => {
+    name: "help",
+    description: "The help command, what do you expect?",
 
+    async execute (client, message, args){
 
-    const roleColor =
-      message.guild.me.displayHexColor === "#000000"
-        ? "#ffffff"
-        : message.guild.me.displayHexColor;
+        //Sort your commands into categories, and make seperate embeds for each category
 
-    if (!args[0]) {
-      let categories = [];
-
-      readdirSync("./commands/").forEach((dir) => {
-        const commands = readdirSync(`./commands/${dir}/`).filter((file) =>
-          file.endsWith(".js")
-        );
-
-        const cmds = commands.map((command) => {
-          let file = require(`../commands/${dir}/${command}`);
-
-          if (!file.name) return "No command name.";
-
-          let name = file.name.replace(".js", "");
-
-          return `\`${name}\``;
-        });
-
-        let data = new Object();
-
-        data = {
-          name: dir.toUpperCase(),
-          value: cmds.length === 0 ? "In progress." : cmds.join(" "),
-        };
-
-        categories.push(data);
-      });
-
-      const embed = new MessageEmbed()
-        .setTitle("📬 Need help? Here are all of my commands:")
-        .addFields(categories)
-        .setDescription(
-          `Use \`${prefix}help\` followed by a command name to get more additional information on a command. For example: \`${prefix}help ban\`.`
-        )
-        .setFooter(
-          `Requested by ${message.author.tag}`,
-          message.author.displayAvatarURL({ dynamic: true })
-        )
+        const moderation = new Discord.MessageEmbed()
+        .setTitle('Moderation')
+        .addField('`;kick`', 'Kicks a member from your server via mention or ID')
+        .addField('`;ban`', 'Bans a member from your server via mention or ID')
+        .addField('`;clear`', 'Purges messages')
         .setTimestamp()
-        .setColor(roleColor);
-      return message.channel.send(embed);
-    } else {
-      const command =
-        client.commands.get(args[0].toLowerCase()) ||
-        client.commands.find(
-          (c) => c.aliases && c.aliases.includes(args[0].toLowerCase())
-        );
 
-      if (!command) {
-        const embed = new MessageEmbed()
-          .setTitle(`Invalid command! Use \`${prefix}help\` for all of my commands!`)
-          .setColor("FF0000");
-        return message.channel.send(embed);
-      }
-
-      const embed = new MessageEmbed()
-        .setTitle("Command Details:")
-        .addField("PREFIX:", `\`${prefix}\``)
-        .addField(
-          "COMMAND:",
-          command.name ? `\`${command.name}\`` : "No name for this command."
-        )
-        .addField(
-          "ALIASES:",
-          command.aliases
-            ? `\`${command.aliases.join("` `")}\``
-            : "No aliases for this command."
-        )
-        .addField(
-          "USAGE:",
-          command.usage
-            ? `\`${prefix}${command.name} ${command.usage}\``
-            : `\`${prefix}${command.name}\``
-        )
-        .addField(
-          "DESCRIPTION:",
-          command.description
-            ? command.description
-            : "No description for this command."
-        )
-        .setFooter(
-          `Requested by ${message.author.tag}`,
-          message.author.displayAvatarURL({ dynamic: true })
-        )
+        const fun = new Discord.MessageEmbed()
+        .setTitle('Fun')
+        .addField('`;meme`', 'Generates a random meme')
+        .addField('`;ascii`', 'Converts text into ascii')
         .setTimestamp()
-        .setColor(roleColor);
-      return message.channel.send(embed);
+
+        const utility = new Discord.MessageEmbed()
+        .setTitle('Utlity')
+        .addField('`;global`', 'Track the amount of COVID-19 cases globally')
+        .addField('`;country`', 'Tracks a specified country\'s COVID-19 cases')
+        .addField('`;ping`', 'Get the bot\'s API ping')
+        .addField('`;weather`', 'Checks weather forecast for provided location')
+        .setTimestamp()
+
+        const pages = [
+                moderation,
+                fun,
+                utility
+        ]
+
+        const emojiList = ["⏪", "⏩"];
+
+        const timeout = '120000';
+
+        pagination(message, pages, emojiList, timeout)
     }
-  },
-};
+}
