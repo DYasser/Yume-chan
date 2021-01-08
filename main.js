@@ -56,6 +56,9 @@ client.on('message', message => {
 module.exports = app;
 
 //Listen on env port or 3000
-//app.listen(port, () => {console.log(`Listenning to port ${port}...`)});
+let port=process.env.PORT||3000
+app.listen(port, () => {
+    console.log(`App running on port ${port} `);
+});
 
 client.login(process.env.token);
