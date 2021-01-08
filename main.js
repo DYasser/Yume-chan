@@ -41,12 +41,6 @@ client.on('message', message => {
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift();//.toLowerCase();
 
-    let jsfiles = files.filter(f => f.split(".").pop() === "js");
-    if(jsfiles.length <= 0) {
-        console.log("No commands to load!");
-        return;
-    }
-
     if(command === 'ping'){
         client.commands.get('ping').execute(message, args);
     } else if(command === 'hello'){
