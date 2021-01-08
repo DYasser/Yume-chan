@@ -12,12 +12,17 @@ module.exports = {
 
         msg.shift();
         let description = msg.join(" ", msg); 
+        
+        let maxId = connection.query(`SELECT MAX(id) FROM requests`);
 
-        connection.query(`
+        console.log(maxId);
+
+
+        /*connection.query(`
         INSERT INTO requests(username, commandName, description) 
         VALUES ( "`+ username +`",
             "`+ command +`",
-            "`+ description +`")`)
+            "`+ description +`")`)*/
 
         message.channel.send("Command name: " + command+ "\nDescription: " + description + "\nsent by "+`${member}`+"!");
     }
