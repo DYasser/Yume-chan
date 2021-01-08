@@ -43,10 +43,10 @@ client.on('message', message => {
 
     if(command === 'ping'){
         client.commands.get('ping').execute(message, args);
-    } else if(command == 'request'){
-        client.commands.get('request').execute(message, args, connection);
     } else if(command == 'hello'){
         client.commands.get('hello').execute(message, args);
+    } else if(command == 'request'){
+        client.commands.get('request').execute(message, args, connection);
     } 
 });
 //  ------------------  Discord Bot ---------------------------------  //
