@@ -1,0 +1,61 @@
+const Discord = require('discord.js');
+const express = require("express");
+const fs = require('fs');
+const Router = require("./api/routes/");
+const cors = require("cors");
+const app = express();
+require('./api/config/db-config')
+
+const CONFIG = require('./api/config/env-config').CONFIG;
+
+const port = CONFIG.port;
+//Testing the connection to the server, you can delete this when you push to a server since it is useless to console it there.
+connection.query('SELECT 1', (err, result) => {
+    console.log({ error: err, ok: result })
+    if (err) {
+        next(err)
+    }
+})
+
+const client = new Discord.Client();
+
+client.commands = new Discord.Collection();
+
+app.use(cors());
+
+app.use("/api", cors(), Router);
+
+//  ------------------  Discord Bot ---------------------------------  //
+const prefix = '?';
+
+const commandFiles = fs.readdirSync('./commands/').filter( file => file.endsWith('.js'));
+for(const file of commandFiles){
+    const command = require(`./commands/${file}`);
+
+    client.commands.set(command.name, command);
+}
+
+client.once('ready', () => {
+    console.log("Yume chan desu~!")
+});
+
+client.on('message', message => {
+    if(!message.content.startsWith(prefix) || message.author.bot) return;
+
+    const args = message.content.slice(prefix.length).split(/ +/);
+    const command = args.shift();//.toLowerCase();
+
+    if(command === 'ping'){
+        client.commands.get('ping').execute(message, args);
+    } else if(command == 'request'){
+        client.commands.get('request').execute(message, args, connection);
+    } 
+});
+//  ------------------  Discord Bot ---------------------------------  //
+
+module.exports = app;
+
+//Listen on env port or 3000
+app.listen(port, () => {console.log(`Listenning to port ${port}...`)});
+
+client.login(process.env.token);
