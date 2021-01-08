@@ -2,13 +2,12 @@ const mysql = require('mysql');
 
 // Configuration to connect to the database ; for more info see the environnement variables
 const connection = mysql.createConnection({
-    port: process.env.DB_PORT,
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: "process.env.DB_DATABASE",
-    socketPath: process.env.SOCKET_PATH,
-    multipleStatements: true
+    port: 3306,
+    host: "localhost",
+    user: "root",
+    password: "",
+    database: "yume",
+    socketPath: ""
 });
 connection.connect(function(err) {
     if (err) {
