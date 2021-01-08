@@ -46,7 +46,7 @@ client.on('message', message => {
     } else if(command === 'hello'){
         client.commands.get('hello').execute(message, args);
     } else if(command === 'help'){
-        client.commands.get('help').execute(client, message, args);
+        client.commands.get('help').execute(message, args);
     } else if(command === 'request'){
         client.commands.get('request').execute(message, args, connection);
     } else {

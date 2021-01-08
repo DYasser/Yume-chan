@@ -5,33 +5,28 @@ module.exports = {
     name: "help",
     description: "The help command, what do you expect?",
 
-    async execute (client, message, args){
+    async execute (message, args){
 
         //Sort your commands into categories, and make seperate embeds for each category
-
-        const moderation = new Discord.MessageEmbed()
-        .setTitle('Moderation')
-        .addField('`;kick`', 'Kicks a member from your server via mention or ID')
-        .addField('`;ban`', 'Bans a member from your server via mention or ID')
-        .addField('`;clear`', 'Purges messages')
+        const stuff = new Discord.MessageEmbed()
+        .setTitle('Does stuff')
+        .addField('``', 'nothing yet, I\' wanna sleep so much so I\'l finish this some other day')
+        .addField('`?hello`', 'greets you (on going)')
         .setTimestamp()
 
         const fun = new Discord.MessageEmbed()
         .setTitle('Fun')
-        .addField('`;meme`', 'Generates a random meme')
-        .addField('`;ascii`', 'Converts text into ascii')
+        .addField('`?ping`', 'pong')
         .setTimestamp()
 
         const utility = new Discord.MessageEmbed()
         .setTitle('Utlity')
-        .addField('`;global`', 'Track the amount of COVID-19 cases globally')
-        .addField('`;country`', 'Tracks a specified country\'s COVID-19 cases')
-        .addField('`;ping`', 'Get the bot\'s API ping')
-        .addField('`;weather`', 'Checks weather forecast for provided location')
+        .addField('`?request`', 'Request any kind of command to the bot')
+        .addField('`?help`', 'Lists all available commands duh.. (on going)')
         .setTimestamp()
 
         const pages = [
-                moderation,
+                stuff,
                 fun,
                 utility
         ]
