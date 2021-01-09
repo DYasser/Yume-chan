@@ -37,7 +37,7 @@ module.exports = {
             }
         }
         const utility = new Discord.MessageEmbed()
-        .setTitle('Utlity')
+        .setTitle('Utility')
         .setTimestamp()
         for(command in commands){
             if(commands[command].type === "utility"){
