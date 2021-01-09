@@ -1,11 +1,22 @@
 const pagination = require('discord.js-pagination');
 const Discord = require('discord.js');
+const fs = require('fs');
 
 module.exports = {
     name: "help",
     description: "The help command, what do you expect?",
 
     async execute (message, args){
+
+        let commands = {
+            name: "",
+            description:""
+        };
+        const commandFiles = fs.readdirSync('./commands/').filter( file => file.endsWith('.js'));
+        for(const file of commandFiles){
+            const command = require(`../commands/${file}`);
+            console.log(command)
+        }
 
         //Sort your commands into categories, and make seperate embeds for each category
         const stuff = new Discord.MessageEmbed()
@@ -33,7 +44,7 @@ module.exports = {
 
         const emojiList = ["⏪", "⏩"];
 
-        const timeout = '120000';
+        //const timeout = '120000';
 
         pagination(message, pages, emojiList)
     }
