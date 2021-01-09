@@ -14,8 +14,7 @@ module.exports = {
         SELECT * FROM requests`, function(err, result, fields){
             
             for( x in result){
-                console.log(result[x].commandName);
-                requests.addField('`?`'+result[0].commandName, ''+result[0].description);
+                requests.addField('`?`'+result[x].commandName, ''+result[x].description);
             }
 
             const pages = [
