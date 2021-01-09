@@ -11,7 +11,7 @@ module.exports = {
 		oppai();
 		function oppai(){
 			pass = true;
-			got('https://www.reddit.com/r/AnimeTitties/random/.json')
+			got('https://www.reddit.com/r/ecchi/random/.json')
 			.then(response => {
 				const [list] = JSON.parse(response.body);
 				const [post] = list.data.children;
