@@ -6,15 +6,25 @@ module.exports = {
     description: 'I list you all the requests that have been done.',
     type: 'utility',
     execute(message, args){
+        const requests;
+
         connection.query(`
         SELECT * FROM requests`, function(err, result, fields){
             console.log(result);
+            
+            requests = new Discord.MessageEmbed()
+            .setTitle(':writing_hand: Requests :writing_hand:')
+            .setTimestamp();
+    
+            for(command in result){
+                if(commands[command].type === "utility"){
+                    utility.addField('`?`'+result[command].commandName, ''+result[command].description);
+    
+                }
+            }
         })
 
-        const requests = new Discord.MessageEmbed()
-        .setTitle(':writing_hand: Requests :writing_hand:')
-        .addField('`testing`', 'the test')
-        .setTimestamp();
+        
             
         pages = [requests]
 
