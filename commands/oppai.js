@@ -22,6 +22,7 @@ module.exports = {
 				const memeImage = post.data.url;
 				if(memeImage[8]!== "i"){
 					pass = false;
+					console.log("yes");
 					oppai();
 				}
 				const memeTitle = post.data.title;
