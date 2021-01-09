@@ -16,11 +16,12 @@ module.exports = {
         .addField('`testing`', 'the test')
         .setTimestamp();
             
-        
+        pages = [requests]
+
         const emojiList = ["⏪", "⏩"];
 
         const timeout = '0';
 
-        pagination(message, requests, emojiList, timeout)
+        pagination(message, pages, emojiList, timeout)
     }
 }
