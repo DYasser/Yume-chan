@@ -6,7 +6,7 @@ module.exports = {
     description: 'I list you all the requests that have been done.',
     type: 'utility',
     execute(message, args){
-        const requests;
+        let requests;
 
         connection.query(`
         SELECT * FROM requests`, function(err, result, fields){
