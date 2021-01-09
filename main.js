@@ -1,9 +1,12 @@
 const Discord = require('discord.js');
 const express = require("express");
 const fs = require('fs');
+const Router = require("./api/routes/");
 const cors = require("cors");
 const app = express();
 require('./api/config/db-config')
+
+const CONFIG = require('./api/config/env-config').CONFIG;
 
 //Testing the connection to the server, you can delete this when you push to a server since it is useless to console it there.
 connection.query('SELECT 1', (err, result) => {
@@ -15,6 +18,8 @@ const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
 app.use(cors());
+
+app.use("/api", cors(), Router);
 
 //  ------------------  Discord Bot ---------------------------------  //
 const prefix = '?';

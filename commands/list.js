@@ -17,6 +17,10 @@ module.exports = {
         .setTimestamp();
             
         
-        pagination(message, requests)
+        const emojiList = ["⏪", "⏩"];
+
+        const timeout = '0';
+
+        pagination(message, requests, emojiList, timeout)
     }
 }
