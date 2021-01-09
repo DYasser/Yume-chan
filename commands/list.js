@@ -6,24 +6,26 @@ module.exports = {
     description: 'I list you all the requests that have been done.',
     type: 'utility',
     execute(message, args){
-        let requests;
+        let requests = new Discord.MessageEmbed();
 
         connection.query(`
         SELECT * FROM requests`, function(err, result, fields){
-            console.log(result);
             
-            requests = new Discord.MessageEmbed()
+            requests
             .setTitle(':writing_hand: Requests :writing_hand:')
             .setTimestamp();
     
             for(command in result){
+                console.log(result);
                 requests.addField('`?`'+result[command].commandName, ''+result[command].description);
             }
         })
 
         
             
-        pages = [requests]
+        const pages = [
+            requests
+        ]
 
         const emojiList = ["⏪", "⏩"];
 
