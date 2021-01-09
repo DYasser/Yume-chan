@@ -8,7 +8,7 @@ module.exports = {
 
     async execute (message, args){
 
-        let commands = {};
+        let commands = [];
         const commandFiles = fs.readdirSync('./commands/').filter( file => file.endsWith('.js'));
         for(const file of commandFiles){
             const command = require(`../commands/${file}`);
