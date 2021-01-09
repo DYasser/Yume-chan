@@ -1,6 +1,7 @@
 module.exports = {
     name: 'request',
     description: 'Use this request command to request a command',
+    page: 'utility',
     execute(message, args, connection){
         const member = message.member;
         let username = member.user.username;

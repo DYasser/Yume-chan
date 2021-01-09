@@ -5,17 +5,15 @@ const fs = require('fs');
 module.exports = {
     name: "help",
     description: "The help command, what do you expect?",
-
+    page: 'utility',
     async execute (message, args){
 
         let commands = [];
         const commandFiles = fs.readdirSync('./commands/').filter( file => file.endsWith('.js'));
         for(const file of commandFiles){
             const command = require(`../commands/${file}`);
-            console.log(command.name)
-            console.log(command.description)
-            console.log("--------------------")
-            commands.push({"name": command.name,
+            commands.push({"type": command.page,
+                        "name": command.name,
                         "description": command.description})
         }
 
@@ -24,19 +22,27 @@ module.exports = {
         const stuff = new Discord.MessageEmbed()
         .setTitle('Does stuff')
         .addField('``', 'nothing yet, I\' wanna sleep so much so I\'l finish this some other day')
-        .addField('`?hello`', 'greets you (on going)')
         .setTimestamp()
+        for(command in commands){
+            if(command.type === "stuff")
+            stuff.addField('`?`'+command.name, ''+command.description)
+        }
 
         const fun = new Discord.MessageEmbed()
         .setTitle('Fun')
-        .addField('`?ping`', 'pong')
         .setTimestamp()
+        for(command in commands){
+            if(command.type === "fun")
+            fun.addField('`?`'+command.name, ''+command.description)
+        }
 
         const utility = new Discord.MessageEmbed()
         .setTitle('Utlity')
-        .addField('`?request`', 'Request any kind of command to the bot')
-        .addField('`?help`', 'Lists all available commands duh.. (on going)')
         .setTimestamp()
+        for(command in commands){
+            if(command.type === "utility")
+            utility.addField('`?`'+command.name, ''+command.description)
+        }
 
         const pages = [
                 stuff,
