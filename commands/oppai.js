@@ -24,6 +24,7 @@ module.exports = {
 					pass = false;
 					console.log("yes");
 					oppai();
+					break;
 				}
 				const memeTitle = post.data.title;
 				const memeUpvotes = post.data.ups;
