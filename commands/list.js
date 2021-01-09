@@ -17,7 +17,7 @@ module.exports = {
             .setTimestamp();
     
             for(command in result){
-                utility.addField('`?`'+result[command].commandName, ''+result[command].description);
+                requests.addField('`?`'+result[command].commandName, ''+result[command].description);
             }
         })
 
