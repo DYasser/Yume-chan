@@ -21,7 +21,7 @@ module.exports = {
         //Sort your commands into categories, and make seperate embeds for each category
         const stuff = new Discord.MessageEmbed()
         .setTitle('Does stuff')
-        .addField('', 'nothing yet, I wanna sleep so much so I\'ll finish this some other day')
+        .addField('Nothing', 'nothing yet, I wanna sleep so much so I\'ll finish this some other day')
         .setTimestamp()
         for(command in commands){
             console.log("command test type: ");
