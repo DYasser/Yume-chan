@@ -21,29 +21,35 @@ module.exports = {
         //Sort your commands into categories, and make seperate embeds for each category
         const stuff = new Discord.MessageEmbed()
         .setTitle('Does stuff')
-        .addField('``', 'nothing yet, I\' wanna sleep so much so I\'l finish this some other day')
+        .addField('', 'nothing yet, I wanna sleep so much so I\'ll finish this some other day')
         .setTimestamp()
         for(command in commands){
-            if(command.type === "stuff")
-            stuff.addField('`?`'+command.name, ''+command.description)
+            console.log("command test type: ");
+            console.log(command);
+            console.log(command.type);
+            if(command.type === "stuff"){
+                stuff.addField('`?`'+command.name, ''+command.description);
+            }
         }
 
         const fun = new Discord.MessageEmbed()
         .setTitle('Fun')
         .setTimestamp()
         for(command in commands){
-            if(command.type === "fun")
-            fun.addField('`?`'+command.name, ''+command.description)
-        }
+            if(command.type === "fun"){
+                fun.addField('`?`'+command.name, ''+command.description);
 
+            }
+        }
         const utility = new Discord.MessageEmbed()
         .setTitle('Utlity')
         .setTimestamp()
         for(command in commands){
-            if(command.type === "utility")
-            utility.addField('`?`'+command.name, ''+command.description)
-        }
+            if(command.type === "utility"){
+                utility.addField('`?`'+command.name, ''+command.description);
 
+            }
+        }
         const pages = [
                 stuff,
                 fun,
