@@ -15,7 +15,7 @@ module.exports = {
             console.log(command.name)
             console.log(command.description)
             console.log("--------------------")
-            commands.add({"name": command.name,
+            commands.push({"name": command.name,
                         "description": command.description})
         }
 
