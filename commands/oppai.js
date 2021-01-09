@@ -2,8 +2,8 @@ const Discord = require('discord.js');
 const got = require('got');
 
 module.exports = {
-    name: 'titties',
-    description: 'NSFW! some hot anime titties... I guess I am not enough',
+    name: 'oppai',
+    description: 'NSFW! some oppais ... I guess I am not enough',
     type: 'stuff',
     execute(message, args){
         const embed = new Discord.MessageEmbed();
