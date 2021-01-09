@@ -14,7 +14,7 @@ module.exports = {
         SELECT * FROM requests`, function(err, result, fields){
             
             for( x in result){
-                requests.addField('`?`'+result[x].commandName, ''+result[x].description);
+                requests.addField('`?`'+result[0].commandName, ''+result[x].description);
             }
 
             const pages = [
@@ -28,8 +28,6 @@ module.exports = {
             pagination(message, pages, emojiList, timeout)
             
         })
-
-        
-            
+   
     }
 }
