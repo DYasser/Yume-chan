@@ -26,8 +26,6 @@ module.exports = {
             const timeout = '0';
     
             pagination(message, pages, emojiList, timeout)
-            
         })
-   
     }
 }
