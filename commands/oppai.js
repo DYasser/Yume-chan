@@ -7,7 +7,7 @@ module.exports = {
     type: 'stuff',
     execute(message, args){
         const embed = new Discord.MessageEmbed();
-	    got('https://www.reddit.com/r/AnimeTitties/.json')
+	    got('https://www.reddit.com/r/AnimeTitties/random/.json')
 		.then(response => {
 			const [list] = JSON.parse(response.body);
 			const [post] = list.data.children;
