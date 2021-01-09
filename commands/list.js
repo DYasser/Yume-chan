@@ -14,12 +14,14 @@ module.exports = {
         SELECT * FROM requests`, function(err, result, fields){
             
             for( x in result){
+                console.log(x);
+                console.log(result[x]);
                 requests.addField('`?`'+result[0].commandName, ''+result[x].description);
             }
 
             const pages = [
                 requests
-            ]
+            ];
     
             const emojiList = ["⏪", "⏩"];
     
