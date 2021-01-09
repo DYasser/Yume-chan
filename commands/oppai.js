@@ -7,8 +7,7 @@ module.exports = {
     type: 'stuff',
     execute(message, args){
 		const embed = new Discord.MessageEmbed();
-
-
+		oppai();
 
 		function oppai(){
 			got('https://www.reddit.com/r/AnimeTitties/random/.json')
