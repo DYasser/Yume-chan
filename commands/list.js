@@ -16,7 +16,7 @@ module.exports = {
             for( x in result){
                 console.log(x);
                 console.log(result[x]);
-                requests.addField('`?`'+result[0].commandName, ''+result[x].description);
+                requests.addField('`?`'+result[0].commandName, ' '+result[x].description);
             }
 
             const pages = [
