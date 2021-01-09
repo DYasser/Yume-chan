@@ -9,6 +9,7 @@ module.exports = {
         const embed = new Discord.MessageEmbed();
 	    got('https://www.reddit.com/r/AnimeTitties/.json')
 		.then(response => {
+			console.log(response);
 			const [list] = JSON.parse(response.body);
 			const [post] = list.data.children;
 
