@@ -8,16 +8,18 @@ module.exports = {
 
     async execute (message, args){
 
-        let commands = {
-            name: "",
-            description:""
-        };
+        let commands = {};
         const commandFiles = fs.readdirSync('./commands/').filter( file => file.endsWith('.js'));
         for(const file of commandFiles){
             const command = require(`../commands/${file}`);
-            console.log(command)
+            console.log(command.name)
+            console.log(command.description)
+            console.log("--------------------")
+            commands.add({"name": command.name,
+                        "description": command.description})
         }
 
+        console.log(commands);
         //Sort your commands into categories, and make seperate embeds for each category
         const stuff = new Discord.MessageEmbed()
         .setTitle('Does stuff')
