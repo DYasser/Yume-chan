@@ -5,14 +5,14 @@ const fs = require('fs');
 module.exports = {
     name: "help",
     description: "The help command, what do you expect u fucking weeb?!",
-    page: 'utility',
+    type: 'utility',
     async execute (message, args){
 
         let commands = [];
         const commandFiles = fs.readdirSync('./commands/').filter( file => file.endsWith('.js'));
         for(const file of commandFiles){
             const command = require(`../commands/${file}`);
-            commands.push({"type": command.page,
+            commands.push({"type": command.type,
                         "name": command.name,
                         "description": command.description})
         }

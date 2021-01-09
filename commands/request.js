@@ -1,7 +1,7 @@
 module.exports = {
     name: 'request',
     description: 'Request a command to my grand master',
-    page: 'utility',
+    type: 'utility',
     execute(message, args, connection){
         const member = message.member;
         let username = member.user.username;

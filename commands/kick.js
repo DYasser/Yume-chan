@@ -1,7 +1,7 @@
 module.exports = {
     name: 'kick',
     description: 'I kick the hell out of people',
-    page: 'stuff',
+    type: 'stuff',
     execute(message, args){
         const member = message.member;
         const memberTarget = message.guild.members.cache.get(member.id);
