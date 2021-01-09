@@ -1,6 +1,6 @@
 module.exports = {
     name: 'kick',
-    description: 'this is a kick command',
+    description: 'I kick the hell out of people',
     page: 'stuff',
     execute(message, args){
         const member = message.member;

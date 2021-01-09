@@ -4,7 +4,7 @@ const fs = require('fs');
 
 module.exports = {
     name: "help",
-    description: "The help command, what do you expect?",
+    description: "The help command, what do you expect u fucking weeb?!",
     page: 'utility',
     async execute (message, args){
 
@@ -17,16 +17,11 @@ module.exports = {
                         "description": command.description})
         }
 
-        console.log(commands);
         //Sort your commands into categories, and make seperate embeds for each category
         const stuff = new Discord.MessageEmbed()
         .setTitle('Does stuff')
-        .addField('Nothing', 'nothing yet, I wanna sleep so much so I\'ll finish this some other day')
         .setTimestamp()
         for(command in commands){
-            console.log("command test type: ");
-            console.log(commands[command]);
-            console.log(commands[command].type);
             if(commands[command].type === "stuff"){
                 stuff.addField('`?`'+commands[command].name, ''+commands[command].description);
             }

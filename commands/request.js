@@ -1,6 +1,6 @@
 module.exports = {
     name: 'request',
-    description: 'Use this request command to request a command',
+    description: 'Request a command to my grand master',
     page: 'utility',
     execute(message, args, connection){
         const member = message.member;
