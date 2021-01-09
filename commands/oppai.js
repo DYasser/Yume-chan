@@ -21,10 +21,9 @@ module.exports = {
 				const memeUrl = `https://reddit.com${permalink}`;
 				const memeImage = post.data.url;
 				if(memeImage[8]!== "i"){
-					pass = false;
 					console.log("yes");
 					oppai();
-					break;
+					pass = false;
 				}
 				const memeTitle = post.data.title;
 				const memeUpvotes = post.data.ups;
