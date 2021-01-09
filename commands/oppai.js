@@ -7,10 +7,8 @@ module.exports = {
     type: 'stuff',
     execute(message, args){
 		const embed = new Discord.MessageEmbed();
-		let pass = true;
 		oppai();
 		function oppai(){
-			pass = true;
 			got('https://www.reddit.com/r/AnimeTitties/random/.json')
 			.then(response => {
 				const [list] = JSON.parse(response.body);
@@ -21,9 +19,7 @@ module.exports = {
 				const memeUrl = `https://reddit.com${permalink}`;
 				const memeImage = post.data.url;
 				if(memeImage[8]!== "i"){
-					console.log("yes");
 					oppai();
-					pass = false;
 				}
 				const memeTitle = post.data.title;
 				const memeUpvotes = post.data.ups;
@@ -35,8 +31,7 @@ module.exports = {
 				embed.setImage(memeImage);
 				embed.setFooter(`👍 ${memeUpvotes} 💬 ${memeNumComments}`);
 	
-				if(pass)
-					message.channel.send(embed);
+				message.channel.send(embed);
 			})
 			.catch(console.error);
 		}
