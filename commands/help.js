@@ -25,10 +25,10 @@ module.exports = {
         .setTimestamp()
         for(command in commands){
             console.log("command test type: ");
-            console.log(command);
-            console.log(command.type);
-            if(command.type === "stuff"){
-                stuff.addField('`?`'+command.name, ''+command.description);
+            console.log(commands[command]);
+            console.log(commands[command].type);
+            if(commands[command].type === "stuff"){
+                stuff.addField('`?`'+commands[command].name, ''+commands[command].description);
             }
         }
 
@@ -36,8 +36,8 @@ module.exports = {
         .setTitle('Fun')
         .setTimestamp()
         for(command in commands){
-            if(command.type === "fun"){
-                fun.addField('`?`'+command.name, ''+command.description);
+            if(commands[command].type === "fun"){
+                fun.addField('`?`'+commands[command].name, ''+commands[command].description);
 
             }
         }
@@ -45,8 +45,8 @@ module.exports = {
         .setTitle('Utlity')
         .setTimestamp()
         for(command in commands){
-            if(command.type === "utility"){
-                utility.addField('`?`'+command.name, ''+command.description);
+            if(commands[command].type === "utility"){
+                utility.addField('`?`'+commands[command].name, ''+commands[command].description);
 
             }
         }
