@@ -15,22 +15,22 @@ module.exports = {
             
             for( x in result){
                 console.log(result[x].commandName);
+                requests.addField('`?`'+result[0].commandName, ''+result[0].description);
             }
 
-            requests.addField('`?`'+result[0].commandName, ''+result[0].description);
+            const pages = [
+                requests
+            ]
+    
+            const emojiList = ["⏪", "⏩"];
+    
+            const timeout = '0';
+    
+            pagination(message, pages, emojiList, timeout)
             
         })
 
         
             
-        const pages = [
-            requests
-        ]
-
-        const emojiList = ["⏪", "⏩"];
-
-        const timeout = '0';
-
-        pagination(message, pages, emojiList, timeout)
     }
 }
