@@ -11,14 +11,13 @@ module.exports = {
         connection.query(`
         SELECT * FROM requests`, function(err, result, fields){
             
+            console.log(result[0]);
+
             requests
             .setTitle(':writing_hand: Requests :writing_hand:')
-            .setTimestamp();
-    
-            for(command in result){
-                console.log(result);
-                requests.addField('`?`'+result[command].commandName, ''+result[command].description);
-            }
+            .setTimestamp()
+            .addField('`?`'+result[command].commandName, ''+result[command].description);
+            
         })
 
         
