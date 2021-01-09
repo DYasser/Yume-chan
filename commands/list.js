@@ -8,7 +8,6 @@ module.exports = {
     execute(message, args){
         connection.query(`
         SELECT * FROM requests`, function(err, result, fields){
-            if(err) throw err;
             console.log(result);
         })
 
