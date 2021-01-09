@@ -44,6 +44,8 @@ client.on('message', message => {
         client.commands.get('help').execute(message, args);
     } else if(command === 'request'){
         client.commands.get('request').execute(message, args, connection);
+    } else if(command === 'list'){
+        client.commands.get('list').execute(message, args);
     } else {
         message.channel.send("I can't do it yet.. Gomenasai~");
     }
