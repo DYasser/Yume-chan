@@ -6,17 +6,18 @@ module.exports = {
     description: 'I list you all the requests that have been done.',
     type: 'utility',
     execute(message, args){
-        let requests = new Discord.MessageEmbed();
+        let requests = new Discord.MessageEmbed()
+        .setTitle(':writing_hand: Requests :writing_hand:')
+        .setTimestamp();
 
         connection.query(`
         SELECT * FROM requests`, function(err, result, fields){
             
-            console.log(result[0].commandName);
+            for( x in result){
+                console.log(result[x].commandName);
+            }
 
-            requests
-            .setTitle(':writing_hand: Requests :writing_hand:')
-            .setTimestamp()
-            .addField('`?`'+result.commandName, ''+result.description);
+            requests.addField('`?`'+result[0].commandName, ''+result[0].description);
             
         })
 
