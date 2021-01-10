@@ -15,7 +15,7 @@ module.exports = {
 				const [post] = list.data.children;
 				
 	
-				const permalink = post.data.permalink;
+				const permalink = post.data.url;
 				const memeUrl = `https://reddit.com${permalink}`;
 				const memeImage = post.data.url;
 				if(memeImage[8]!== "i"){
