@@ -24,6 +24,8 @@ module.exports = {
 				console.log("------------------");
 				if(memeImage[8]!== "i"){
 					oppai();
+					memeImage = "";
+					console.log("testing");
 				}
 				const memeTitle = post.data.title;
 				const memeUpvotes = post.data.ups;
