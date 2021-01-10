@@ -22,7 +22,7 @@ module.exports = {
 				console.log(permalink);
 				console.log(memeImage);
 				console.log("------------------");
-				if(memeImage[8]!== "i"){
+				if(memeImage[8]!== "i" && memeImage[9]!== "." && memeImage[10]!== "i"){
 					oppai();
 					memeImage = "";
 					console.log("testing");
