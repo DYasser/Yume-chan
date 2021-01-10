@@ -12,7 +12,7 @@ module.exports = {
 			got('https://www.reddit.com/r/ecchi/random/.json')
 			.then(response => {
 				console.log(JSON.parse(response.body));
-				const [list] = JSON.parse(response.body);
+				const list = JSON.parse(response.body);
 				const [post] = list.data.children;
 				
 	
