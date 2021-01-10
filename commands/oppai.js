@@ -15,9 +15,13 @@ module.exports = {
 				const [post] = list.data.children;
 				
 	
-				const permalink = post.data.url;
+				const permalink = post.data.permalink;
 				const memeUrl = `https://reddit.com${permalink}`;
 				const memeImage = post.data.url;
+				console.log("------------------");
+				console.log(permalink);
+				console.log(memeImage);
+				console.log("------------------");
 				if(memeImage[8]!== "i"){
 					oppai();
 				}
