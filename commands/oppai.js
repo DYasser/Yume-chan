@@ -9,7 +9,7 @@ module.exports = {
 		const embed = new Discord.MessageEmbed();
 		oppai();
 		function oppai(){
-			got('https://www.reddit.com/r/ecchi/random/.json')
+			got('https://www.reddit.com/r/AnimeTitties/random/.json')
 			.then(response => {
 				const [list] = [JSON.parse(response.body)];
 				const [post] = list.data.children;
@@ -17,15 +17,9 @@ module.exports = {
 	
 				const permalink = post.data.permalink;
 				const memeUrl = `https://reddit.com${permalink}`;
-				const memeImage = post.data.url_overridden_by_dest;
-				console.log("------------------");
-				console.log(permalink);
-				console.log(memeImage);
-				console.log("------------------");
-				if(memeImage[8]!== "i" && memeImage[9]!== "." && (memeImage[10]!== "i" || memeImage[10]!== "r")){
+				const memeImage = post.data.url;
+				if(memeImage[8]!== "i"){
 					oppai();
-					memeImage = "";
-					console.log("testing");
 				}
 				const memeTitle = post.data.title;
 				const memeUpvotes = post.data.ups;
