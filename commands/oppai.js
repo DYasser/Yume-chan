@@ -4,7 +4,7 @@ const got = require('got');
 module.exports = {
     name: 'oppai',
     description: 'NSFW! some oppais ... I guess I am not enough',
-    type: 'stuff',
+    type: 'fun',
     execute(message, args){
 		const embed = new Discord.MessageEmbed();
 		oppai();

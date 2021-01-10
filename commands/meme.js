@@ -4,7 +4,7 @@ const got = require('got');
 module.exports = {
     name: 'meme',
     description: 'I bring u the freshest memes',
-    type: 'stuff',
+    type: 'fun',
     execute(message, args){
         const embed = new Discord.MessageEmbed();
 	    got('https://www.reddit.com/r/memes/random/.json')
