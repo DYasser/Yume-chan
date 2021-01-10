@@ -55,8 +55,8 @@ client.on('message', message => {
         client.commands.get('meme').execute(message, args);
     } else if(command === 'oppai'){
         client.commands.get('oppai').execute(message, args);
-    } else if(command === 'calculator'){
-        client.commands.get('calculator').execute(message, args);
+    } else if(command === 'c'){
+        client.commands.get('c').execute(message, args);
     } else {
         message.channel.send("I can't do it yet.. Gomenasai~");
     }

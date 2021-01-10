@@ -1,9 +1,9 @@
 module.exports = {
-    name: 'calculator',
-    description: 'Big brain time',
+    name: 'c',
+    description: 'Calculator: Big brain time',
     type: 'stuff',
     execute(message, args){
-        console.log(message);
+        console.log(message.content);
         message.channel.send("testing calculator!");
     }
 }
