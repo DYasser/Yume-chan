@@ -9,10 +9,10 @@ module.exports = {
 		const embed = new Discord.MessageEmbed();
 		oppai();
 		function oppai(){
-			got('https://www.reddit.com/r/hentai/random/.json')
+			got('https://www.reddit.com/r/ecchi/random/.json')
 			.then(response => {
 				const [list] = JSON.parse(response.body);
-				const [post] = list.data.children;
+				//const [post] = list.data.children;
 				
 	
 				const permalink = post.data.permalink;
