@@ -3,7 +3,8 @@ module.exports = {
     description: 'Calculator: Big brain time',
     type: 'stuff',
     execute(message, args){
-        console.log(message.content);
+        calcul = message.content.slice(3);
+        console.log(calcul);
         message.channel.send("testing calculator!");
     }
 }
