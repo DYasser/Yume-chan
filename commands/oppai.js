@@ -17,7 +17,7 @@ module.exports = {
 	
 				const permalink = post.data.permalink;
 				const memeUrl = `https://reddit.com${permalink}`;
-				const memeImage = post.data.url;
+				const memeImage = post.data.url_overridden_by_dest;
 				console.log("------------------");
 				console.log(permalink);
 				console.log(memeImage);
