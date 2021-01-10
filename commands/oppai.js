@@ -9,7 +9,7 @@ module.exports = {
 		const embed = new Discord.MessageEmbed();
 		oppai();
 		function oppai(){
-			got('https://www.reddit.com/r/AnimeTitties/random/.json')
+			got('https://www.reddit.com/r/ecchi/random/.json')
 			.then(response => {
 				const [list] = JSON.parse(response.body);
 				const [post] = list.data.children;
