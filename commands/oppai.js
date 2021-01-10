@@ -11,8 +11,8 @@ module.exports = {
 		function oppai(){
 			got('https://www.reddit.com/r/ecchi/random/.json')
 			.then(response => {
-				const [list] = JSON.parse(response.body);
-				//const [post] = list.data.children;
+				const [list] = [JSON.parse(response.body)];
+				const [post] = list.data.children;
 				
 	
 				const permalink = post.data.permalink;
