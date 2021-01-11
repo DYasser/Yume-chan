@@ -4,10 +4,14 @@ module.exports = {
     type: 'utility',
     execute(message, args){
         let msg = message.content.split(" ");
-        console.log(msg)
-        message.channel.send("the choices are: ");
-        msg.forEach( e => {
-            message.channel.send("-" + e);
-        });
+
+        msg.reserve();
+        msg.pop();
+
+        let choice = msg.length;
+
+        let randomChoice = Math.floor(Math.random()*1000)%choice;
+
+        message.channel.send("The choice is clear: " + randomChoice);
     }
 }
