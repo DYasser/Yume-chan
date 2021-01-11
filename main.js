@@ -73,6 +73,8 @@ client.on('message', message => {
         client.commands.get('goodnight').execute(message, args);
     } else if(command === 'goodmorning'){
         client.commands.get('goodmorning').execute(message, args);
+    } else if(command === 'choose'){
+        client.commands.get('choose').execute(message, args);
     } else if(command === 'reddit'){
         client.commands.get('reddit').execute(message, args);
     } else {
