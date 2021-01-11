@@ -1,5 +1,5 @@
 module.exports = {
-    name: 'goodnight',
+    name: 'goodmorning',
     description: 'Poke my face to wake me up',
     type: 'stuff',
     execute(message, args){

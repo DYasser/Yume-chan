@@ -49,7 +49,7 @@ client.on('message', message => {
     }
 
     if(asleep && command === "goodmorning"){
-        message.channel.send("'OwO` mornin'~");
+        message.channel.send("☺️ mornin'~");
         asleep = false;
         return;
     }
