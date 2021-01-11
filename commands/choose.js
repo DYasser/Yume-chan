@@ -5,8 +5,7 @@ module.exports = {
     execute(message, args){
         let msg = message.content.split(" ");
 
-        msg.reserve();
-        msg.pop();
+        msg.shift();
 
         let choice = msg.length;
 
