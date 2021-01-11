@@ -11,6 +11,6 @@ module.exports = {
 
         let randomChoice = Math.floor(Math.random()*1000)%choice;
 
-        message.channel.send("The choice is clear: " + randomChoice);
+        message.channel.send("The choice is clear: " + msg[randomChoice]);
     }
 }
