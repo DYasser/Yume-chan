@@ -5,9 +5,7 @@ module.exports = {
     execute(message, args){
         message.react('💖');
         
-        let randomMsg = Math.floor(Math.random*10)%6;
-
-        console.log(randomMsg);
+        let randomMsg = Math.floor(Math.random()*10)%6;
 
         switch(randomMsg){
             case 0:
