@@ -24,6 +24,8 @@ app.use("/api", cors(), Router);
 //  ------------------  Discord Bot ---------------------------------  //
 const prefix = '?';
 
+var asleep = false;
+
 const commandFiles = fs.readdirSync('./commands/').filter( file => file.endsWith('.js'));
 for(const file of commandFiles){
     const command = require(`./commands/${file}`);
@@ -41,6 +43,17 @@ client.on('message', message => {
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift();//.toLowerCase();
 
+    if(asleep && command !== "goodMorning") {
+        message.channel.send("Zzzz");
+        return;
+    }
+
+    if(asleep && command === "goodmorning"){
+        message.channel.send("'OwO` mornin'~");
+        asleep = false;
+        return;
+    }
+
     if(command === 'hello'){
         client.commands.get('hello').execute(message, args);
     } else if(command === 'ping'){
@@ -55,6 +68,11 @@ client.on('message', message => {
         client.commands.get('meme').execute(message, args);
     } else if(command === 'c'){
         client.commands.get('c').execute(message, args);
+    } else if(command === 'goodnight'){
+        asleep = true;
+        client.commands.get('goodnight').execute(message, args);
+    } else if(command === 'goodmorning'){
+        client.commands.get('goodmorning').execute(message, args);
     } else {
         message.channel.send("I can't do it yet.. Gomenasai~");
     }
