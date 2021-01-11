@@ -41,10 +41,10 @@ client.on('message', message => {
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift();//.toLowerCase();
 
-    if(command === 'ping'){
-        client.commands.get('ping').execute(message, args);
-    } else if(command === 'hello'){
+    if(command === 'hello'){
         client.commands.get('hello').execute(message, args);
+    } else if(command === 'ping'){
+        client.commands.get('ping').execute(message, args);
     } else if(command === 'help'){
         client.commands.get('help').execute(message, args);
     } else if(command === 'request'){
@@ -53,8 +53,6 @@ client.on('message', message => {
         client.commands.get('list').execute(message, args);
     } else if(command === 'meme'){
         client.commands.get('meme').execute(message, args);
-    } else if(command === 'oppai'){
-        client.commands.get('oppai').execute(message, args);
     } else if(command === 'c'){
         client.commands.get('c').execute(message, args);
     } else {
