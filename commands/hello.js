@@ -7,6 +7,8 @@ module.exports = {
         
         let randomMsg = Math.floor(Math.random*10)%6;
 
+        console.log(randomMsg);
+
         switch(randomMsg){
             case 0:
                 message.channel.send("Hello master :heart:");
