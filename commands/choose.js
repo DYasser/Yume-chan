@@ -1,6 +1,6 @@
 module.exports = {
     name: 'choose',
-    description: 'I can help you choose between many choices, just make spaces between choices',
+    description: 'I can help you choose from many choices, just make spaces between choices',
     type: 'utility',
     execute(message, args){
         let msg = message.content.split(" ");

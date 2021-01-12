@@ -77,6 +77,8 @@ client.on('message', message => {
         client.commands.get('choose').execute(message, args);
     } else if(command === 'reddit'){
         client.commands.get('reddit').execute(message, args);
+    } else if(command === 'pingtest'){
+        client.commands.get('pingtest').execute(message, args);
     } else {
         message.channel.send("I can't do it yet.. Gomenasai~");
     }
