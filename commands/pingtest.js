@@ -1,3 +1,5 @@
+const Discord = require('discord.js');
+
 module.exports = {
     name: 'pingtest',
     description: 'Tests your ping for you..',
