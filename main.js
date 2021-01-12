@@ -66,8 +66,6 @@ client.on('message', message => {
         client.commands.get('list').execute(message, args);
     } else if(command === 'meme'){
         client.commands.get('meme').execute(message, args);
-    } else if(command === 'c'){
-        client.commands.get('c').execute(message, args);
     } else if(command === 'goodnight'){
         asleep = true;
         client.commands.get('goodnight').execute(message, args);
