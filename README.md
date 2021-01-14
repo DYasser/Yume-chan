@@ -16,3 +16,6 @@ This was my first experience coding a discord bot, so I just played with it a li
 - [**ping:**](https://github.com/DYasser/Yume-chan/blob/master/commands/ping.js) pong.
 
 I have added a folder api that I intended to use for all needed routes, but I found myself not using it and left it there just in case.
+
+### Heroku:
+I used Heroku to host my bot so that I don't need to each time run it for it to be connected. I also used the database from there (that I already removed so the cridentials in the code can't be used ^^)
