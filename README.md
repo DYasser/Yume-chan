@@ -15,3 +15,4 @@ This was my first experience coding a discord bot, so I just played with it a li
 - [**pingtest:**](https://github.com/DYasser/Yume-chan/blob/master/commands/pingtest.js) tests the ping of the user.
 - [**ping:**](https://github.com/DYasser/Yume-chan/blob/master/commands/ping.js) pong.
 
+I have added a folder api that I intended to use for all needed routes, but I found myself not using it and left it there just in case.
